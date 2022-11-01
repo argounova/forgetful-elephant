@@ -27,7 +27,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title: req.body.title,
       text: req.body.text,
-      note_id: uuid.v4(),
+      id: uuid.v4(),
     }
     // if(!newNote.title || !newNote.text) {
     //   return res.status(400).json({msg: 'Please include a note and title'});
