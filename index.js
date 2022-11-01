@@ -5,6 +5,7 @@ const util = require('util');
 const uuid = require('uuid');
 const PORT = process.env.PORT || 3001;
 const app = express();
+const notesArr = require('./Develop/db/notes.json')
 
 // Middleware
 app.use(express.json());
@@ -22,6 +23,14 @@ app.get('/', (req, res) =>
 // API Routes
 app.get('/api/notes', (req, res) => {
     readFromFile('./Develop/db/notes.json').then((data) => res.json(JSON.parse(data)));
+});
+app.delete('/api/notes/:id', (req, res) => {
+  const found = notesArr.some(note => note.id === req.params.id);
+  if(found) {
+  res.json(notesArr.filter(note => note.id !== req.params.id));
+  } else {
+      res.status(400);
+  }
 });
 app.post('/api/notes', (req, res) => {
     const newNote = {
