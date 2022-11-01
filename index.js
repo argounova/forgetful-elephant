@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('Develop/public'));
 
 // GET Routes
 app.get('/notes', (req, res) =>
