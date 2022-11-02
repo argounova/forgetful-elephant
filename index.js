@@ -5,7 +5,6 @@ const util = require('util');
 const uuid = require('uuid');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const notesArr = require('./Develop/db/notes.json')
 
 // Middleware
 app.use(express.json());
@@ -22,33 +21,21 @@ app.get('/', (req, res) =>
 
 // API Routes
 app.get('/api/notes', (req, res) => {
-    readFromFile('./Develop/db/notes.json').then((data) => res.json(JSON.parse(data)));
-});
-app.delete('/api/notes/:id', (req, res) => {
-  const found = notesArr.some(note => note.id === req.params.id);
-  if(found) {
-  res.json(notesArr.filter(note => note.id !== req.params.id));
-  } else {
-      res.status(400);
-  }
+  readFromFile('./Develop/db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 app.post('/api/notes', (req, res) => {
-    const newNote = {
-      title: req.body.title,
-      text: req.body.text,
-      id: uuid.v4(),
-    }
-    // if(!newNote.title || !newNote.text) {
-    //   return res.status(400).json({msg: 'Please include a note and title'});
-    // }
-    readAndAppend(newNote, './Develop/db/notes.json');
-      const response = {
-        status: 'success',
-        body: newNote,
-      };
-      res.json(response);
-    }
-);
+  const newNote = {
+    title: req.body.title,
+    text: req.body.text,
+    id: uuid.v4(),
+  }
+  readAndAppend(newNote, './Develop/db/notes.json');
+    const response = {
+      status: 'success',
+      body: newNote,
+    };
+    res.json(response);
+});
 
 // File functions
 const readFromFile = util.promisify(fs.readFile);

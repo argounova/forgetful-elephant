@@ -1,27 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": "25a"
+        "title": "Modify Styling",
+        "text": "Make small adjustments to the CSS file to create a unique appearance",
+        "id": "8a40c814-4c98-4866-ba7f-326d52f264ba"
     },
     {
-        "title": "New Note 1",
-        "text": "New text for Note 1",
-        "note_id": "906dc8c4-87ce-46f8-a9e6-598ccab9a5ec"
+        "title": "Upload to Heroku",
+        "text": "Deploy application to heroku",
+        "id": "5120b9be-5954-4d46-b111-92b8770f0312"
     },
     {
-        "title": "Orange",
-        "text": "Is the new black",
-        "note_id": "aee6cbf3-9bf4-4b01-a1a2-50ed7ebe8e01"
-    },
-    {
-        "title": "Red",
-        "text": "Is the new blue",
-        "note_id": "eece77a2-1461-452a-9e6b-8c7ef6712918"
-    },
-    {
-        "title": "Test",
-        "text": "test test",
-        "id": "6ddd1094-875d-482f-aa88-756e3b9f663a"
+        "title": "Delete Functionality",
+        "text": "Get the api delete route to work!",
+        "id": "b8c14b02-c5a1-4154-b528-4c77e4cb10f6"
     }
 ]
