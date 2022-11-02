@@ -8,7 +8,7 @@ Built on an Express.js backend, this application allows the user to quickly stor
 
 Installation is easy!  Simply copy and paste the following URL into your favorite browser:
 
-https://argounova.github.io/initial-portfolio/
+https://whispering-castle-00617.herokuapp.com/
 
 ## Usage
 

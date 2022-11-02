@@ -4,7 +4,8 @@
   "description": "Application to write and save notes",
   "main": "index.js",
   "scripts": {
-    "test": "start"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "author": "Craig Putzstuck",
   "license": "MIT",
