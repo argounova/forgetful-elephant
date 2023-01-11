@@ -5,14 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import '../../Assets/Styles/home.css';
-import Navigation from '../../Components/Navigation';
 
-function Home() {
+function Home({__,handlePageChange}) {
     return(
         <>
-            <header>
-                <Navigation/>
-            </header>
             <Container fluid>
                 <Container>
                     <Row>
@@ -27,10 +23,13 @@ function Home() {
                         <Col xs={12} md={4}>
                             <Stack gap={1}>
                                 <h3>Saved Notes</h3>
-                                <Button variant='primary'>Note 1</Button>
-                                <Button variant='primary'>Note 2</Button>
-                                <Button variant='primary'>Note 3</Button>
-                                <Button variant='primary'>Note 4</Button>
+                                <Button 
+                                    variant='secondary'
+                                    onClick={() => handlePageChange('Note')}
+                                    >Note 1</Button>
+                                <Button variant='secondary'>Note 2</Button>
+                                <Button variant='secondary'>Note 3</Button>
+                                <Button variant='secondary'>Note 4</Button>
                             </Stack>
                         </Col>
                     </Row>
