@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import '../Assets/Styles/navbar.css';
 
-function Navbar() {
+function Navigation() {
     return (
         <>
             <Navbar bg="light" variant="light">
@@ -20,3 +20,5 @@ function Navbar() {
         </>
     );
 }
+
+export default Navigation;

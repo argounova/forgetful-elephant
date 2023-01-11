@@ -3,10 +3,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../../Assets/Styles/home.css';
+import Navigation from '../../Components/Navigation';
 
 function Home() {
     return(
         <>
+            <header>
+                <Navigation/>
+            </header>
             <Container fluid>
                 <Container>
                     <Row>
