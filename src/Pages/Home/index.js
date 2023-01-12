@@ -22,7 +22,7 @@ function Home({__,handlePageChange}) {
                         </Col>
                         <Col xs={12} md={4}>
                             <Stack gap={1}>
-                                <h3>Saved Notes</h3>
+                                <h3>Recent Notes</h3>
                                 <Button 
                                     variant='secondary'
                                     onClick={() => handlePageChange('Note')}

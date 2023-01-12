@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Navigation from './Components/Navigation';
+import Navigation from './Components/Navigation/index';
 import Home from './Pages/Home/index';
 import Note from './Pages/Note/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
