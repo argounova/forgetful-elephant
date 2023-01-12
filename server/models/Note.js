@@ -1,5 +1,5 @@
-import { Model, DataTypes } from 'sequelize';
-import '../config/connection';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Note extends Model {}
 
@@ -19,7 +19,14 @@ Note.init(
             type: DataTypes.STRING,
             allowNull: false
         }
-    }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'note'
+      }
 );
 
-export default Note;
+module.exports = Note;

@@ -1,8 +1,6 @@
-import router from 'express';
-import noteRoutes from './noteRoutes';
-
-router.Router();
+const router = require('express').Router();
+const noteRoutes = require('./noteRoutes');
 
 router.use('/notes', noteRoutes);
 
-export default router;
+module.exports = router;
