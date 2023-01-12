@@ -11,7 +11,7 @@ function Navigation(props) {
                 <Container>
                 <Navbar.Brand 
                     href="#home"
-                    // onClick={() => handlePageChange('Home')}
+                    onClick={props.homeClick}
                     >Navbar</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link 
@@ -19,10 +19,13 @@ function Navigation(props) {
                         onClick={props.homeClick}
                         >Home</Nav.Link>
                     <Nav.Link 
-                        href="#new-note"
+                        href="#newNote"
                         onClick={props.newNoteClick}
                         >New Note</Nav.Link>
-                    <Nav.Link href="#myNotes">My Notes</Nav.Link>
+                    <Nav.Link 
+                        href="#myNotes"
+                        onClick={props.myNotesClick}
+                        >My Notes</Nav.Link>
                 </Nav>
                 </Container>
             </Navbar>

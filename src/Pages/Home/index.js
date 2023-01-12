@@ -6,16 +6,19 @@ import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import Navigation from '../../Components/Navigation';
 import NewNote from '../../Components/NewNote/index';
+import MyNotes from '../../Components/MyNotes';
 import '../../Assets/Styles/home.css';
 
 function Home() {
     const setAll = (isFalse) => {
         setShowHomeContent(isFalse);
         setShowNewNote(isFalse);
+        setShowMyNotes(isFalse);
     }
 
     const [showHomeContent, setShowHomeContent] = useState(true);
     const [showNewNote, setShowNewNote] = useState(false);
+    const [showMyNotes, setShowMyNotes] = useState(false);
 
     const handleNewNote = () => {
         setAll(false);
@@ -25,6 +28,11 @@ function Home() {
     const handleHome = () => {
         setAll(false);
         setShowHomeContent(true);
+    }
+
+    const handleMyNotes = () => {
+        setAll(false);
+        setShowMyNotes(true);
     }
 
     function HomeContent() {
@@ -65,9 +73,11 @@ function Home() {
             <Navigation 
                 newNoteClick={handleNewNote}
                 homeClick={handleHome}
+                myNotesClick={handleMyNotes}
             />
             {showHomeContent ? <HomeContent/> : null}
             {showNewNote ? <NewNote/> : null}
+            {showMyNotes ? <MyNotes/> : null}
         </>
     )
 }
