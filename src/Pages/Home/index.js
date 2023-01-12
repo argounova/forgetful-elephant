@@ -7,6 +7,7 @@ import Stack from 'react-bootstrap/Stack';
 import Navigation from '../../Components/Navigation';
 import NewNote from '../../Components/NewNote/index';
 import MyNotes from '../../Components/MyNotes';
+import EditNote from '../../Components/EditNote';
 import '../../Assets/Styles/home.css';
 
 function Home() {
@@ -14,11 +15,13 @@ function Home() {
         setShowHomeContent(isFalse);
         setShowNewNote(isFalse);
         setShowMyNotes(isFalse);
+        setShowEditNote(isFalse);
     }
 
     const [showHomeContent, setShowHomeContent] = useState(true);
     const [showNewNote, setShowNewNote] = useState(false);
     const [showMyNotes, setShowMyNotes] = useState(false);
+    const [showEditNote, setShowEditNote] = useState(false);
 
     const handleNewNote = () => {
         setAll(false);
@@ -33,6 +36,11 @@ function Home() {
     const handleMyNotes = () => {
         setAll(false);
         setShowMyNotes(true);
+    }
+
+    const handleEditNote = () => {
+        setAll(false);
+        setShowEditNote(true);
     }
 
     function HomeContent() {
@@ -77,7 +85,8 @@ function Home() {
             />
             {showHomeContent ? <HomeContent/> : null}
             {showNewNote ? <NewNote/> : null}
-            {showMyNotes ? <MyNotes/> : null}
+            {showMyNotes ? <MyNotes editNoteClick={handleEditNote} /> : null}
+            {showEditNote ? <EditNote/> : null}
         </>
     )
 }
