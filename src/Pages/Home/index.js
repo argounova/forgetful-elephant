@@ -60,10 +60,7 @@ function Home() {
                             <Col xs={12} md={4}>
                                 <Stack gap={1}>
                                     <h3>Recent Notes</h3>
-                                    <Button 
-                                        variant='secondary'
-                                        // onClick={() => handlePageChange('Note')}
-                                        >Note 1</Button>
+                                    <Button variant='secondary'>Note 1</Button>
                                     <Button variant='secondary'>Note 2</Button>
                                     <Button variant='secondary'>Note 3</Button>
                                     <Button variant='secondary'>Note 4</Button>
