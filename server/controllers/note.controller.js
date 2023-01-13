@@ -1,29 +1,38 @@
 const Note = require('../models/Note');
 
-exports.create = (req, res) => {  
-  if (!req.body.title) {
-    res.status(400).send({
-      message: 'Note title is required!'
-    });
-    return;
-  }
-
-  const note = {
-    title: req.body.title,
-    content: req.body.content
-  };
-
-  Note.create(note)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || 'Unable to create note.'
-      });
-    });
+module.exports = {
+  create(req, res) {
+    return Note
+    .create({title: req.body.title, content: req.body.content})
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(500).send(err));
+  },
 };
+
+// exports.create = (req, res) => {  
+//   // if (!req.body.title) {
+//   //   res.status(400).send({
+//   //     message: 'Note title is required!'
+//   //   });
+//   //   return;
+//   // }
+
+//   const note = {
+//     title: req.body.title,
+//     content: req.body.content
+//   };
+
+//   Note.create(note)
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message:
+//           err.message || 'Unable to create note.'
+//       });
+//     });
+// };
 
 // // Retrieve all Tutorials from the database.
 // exports.findAll = (req, res) => {
