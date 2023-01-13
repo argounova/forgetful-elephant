@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -43,34 +43,34 @@ function Home() {
         setShowEditNote(true);
     }
 
-    function HomeContent() {
-        return(
-            <>
-                <Container fluid>
-                    <Container>
-                        <Row>
-                            <Col xs={12} md={8}>
-                                <Stack gap={2}>
-                                    <h3>Start a new note</h3>
-                                    <input placeholder='Note title'></input>
-                                    <textarea></textarea>
-                                    <Button variant='primary'>Save Note</Button>
-                                </Stack>
-                            </Col>
-                            <Col xs={12} md={4}>
-                                <Stack gap={1}>
-                                    <h3>Recent Notes</h3>
-                                    <Button variant='secondary'>Note 1</Button>
-                                    <Button variant='secondary'>Note 2</Button>
-                                    <Button variant='secondary'>Note 3</Button>
-                                    <Button variant='secondary'>Note 4</Button>
-                                </Stack>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Container>
-            </>
-        )
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const form = useRef();
+
+    const handleChange = (e) => {
+        const {target} = e;
+        const formType = target.name;
+        const formValue = target.value;
+
+        if (formType === 'note_title') {
+            setTitle(formValue)
+            console.log(title);
+
+        } else {
+            setContent(formValue)
+            console.log(content);
+
+        }
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ note_title: title, note_content: content })
+            };
+        fetch('http://localhost:3001/api/notes', requestOptions)
     }
 
     return (

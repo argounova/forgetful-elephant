@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Note } = require('../../models/Note');
+const Note = require('../../models/Note');
 
 // GET all notes
 router.get('/', async (req, res) => {
@@ -25,11 +25,8 @@ router.get('/:id', async (req, res) => {
 // CREATE a note
 router.post('/', async (req, res) => {
   try {
-    const noteData = await Note.create({
-      note_title: req.body.note_title,
-      note_content: req.body.note_content,
-    });
-    req.status(200).json(noteData);
+    const noteData = await Note.create(req.body);
+    res.status(200).json(noteData);
   } catch (err) {
     res.status(500).json(err);
   }
