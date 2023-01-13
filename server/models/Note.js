@@ -11,11 +11,11 @@ Note.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        note_title: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        note_content: {
+        content: {
             type: DataTypes.STRING,
             allowNull: false
         }
