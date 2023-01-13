@@ -1,15 +1,18 @@
 const express = require('express');
-const routes = require('./routes');
-const sequelize = require('./config/connection');
-
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3001;
 
+const corsOptions = {
+  origin: 'http://localhost:3000'
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(routes);
-
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+app.get('/', (req, res) => {
+  res.json({message: 'Welcome to bezkoder application, biiiiiitch.'});
 });
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Server running on ${PORT}...`));

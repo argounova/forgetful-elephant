@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
@@ -41,7 +42,7 @@ function Landing() {
                 <Container>
                     <Row>
                         <Col xs={12} md={8}>
-                            <form className='form' ref={form}>
+                            {/* <form className='form' ref={form}> */}
                             <Stack gap={2}>
                                 <h3>Start a new note</h3>
                                 <input 
@@ -64,7 +65,7 @@ function Landing() {
                                     onClick={handleClick}
                                     >Save Note</Button>
                             </Stack>
-                            </form>
+                            {/* </form> */}
                         </Col>
                         <Col xs={12} md={4}>
                             <Stack gap={1}>
