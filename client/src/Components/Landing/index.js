@@ -1,10 +1,40 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
 function Landing() {
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const form = useRef();
+
+    const handleChange = (e) => {
+        const {target} = e;
+        const formType = target.name;
+        const formValue = target.value;
+
+        if (formType === 'note_title') {
+            setTitle(formValue)
+            console.log(title);
+
+        } else {
+            setContent(formValue)
+            console.log(content);
+
+        }
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ note_title: title, note_content: content })
+            };
+        fetch('http://localhost:3001/api/notes', requestOptions)
+    }
+
     return(
         <>
             <Container fluid>
