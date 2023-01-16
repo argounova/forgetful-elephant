@@ -3,22 +3,22 @@ const Note = require('../models/Note');
 module.exports = {
   create(req, res) {
     return Note
-    .create({title: req.body.title, content: req.body.content})
+    .create({title: req.body.note_title, content: req.body.content})
     .then(data => res.status(200).send(data))
     .catch(err => res.status(500).send(err));
   },
 };
 
 // exports.create = (req, res) => {  
-//   // if (!req.body.title) {
-//   //   res.status(400).send({
-//   //     message: 'Note title is required!'
-//   //   });
-//   //   return;
-//   // }
+  // if (!req.body.title) {
+  //   res.status(400).send({
+  //     message: 'Note title is required!'
+  //   });
+  //   return;
+  // }
 
 //   const note = {
-//     title: req.body.title,
+//     title: req.body.mytitle,
 //     content: req.body.content
 //   };
 
