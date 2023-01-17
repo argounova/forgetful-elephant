@@ -1,7 +1,6 @@
-const notes = require('../controllers/note.controller');
-// const router = require('express').Router();
+const noteRoutes = require('../controllers/note.controller');
+const router = require('express').Router();
 
-module.exports = app => {
-    app.post('/api/notes', notes.create);
-    // app.use('/api/notes', router);
-};
+router.use('/api/notes', noteRoutes);
+
+module.exports = router;

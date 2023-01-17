@@ -2,17 +2,16 @@ const sequelize = require('./config/connection');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const bp = require('body-parser');
-require('./routes/note.routes')(app);
-require('./models/Note');
+const routes = require('./routes/note.routes');
 
 const corsOptions = {
   origin: 'http://localhost:3001'
 }
 
 app.use(cors(corsOptions));
-app.use(bp.json());
-app.use(bp.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
 const PORT = process.env.PORT || 3001;
 
@@ -22,7 +21,7 @@ sequelize.authenticate().then(() => {
   console.error('Database connection failed; ', error);
 });
 
-sequelize.sync().then(() => {
+sequelize.sync({force:true}).then(() => {
   console.log('Note table created');
 }).catch((error) => {
   console.error ('Unable to create table; ', error);
