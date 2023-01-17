@@ -1,18 +1,6 @@
-const Note = require('../models/Note');
+const Note = require('../models/note.model');
 const router = require('express').Router();
 
-
-// module.exports = {
-//   async create(req, res) {
-//     try {
-//       const data = await Note
-//         .create(req.body);
-//       return res.status(200).json(data);
-//     } catch (err) {
-//       return res.status(500).json(err);
-//     }
-//   },
-// };
 
 // exports.findAll = (req, res) => {
 // exports.findOne = (req, res) => {

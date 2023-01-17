@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const routes = require('./routes/note.routes');
-
 const corsOptions = {
   origin: 'http://localhost:3001'
 }
@@ -21,10 +20,10 @@ sequelize.authenticate().then(() => {
   console.error('Database connection failed; ', error);
 });
 
-sequelize.sync({force:true}).then(() => {
-  console.log('Note table created');
+sequelize.sync().then(() => {
+  console.log('Synced');
 }).catch((error) => {
-  console.error ('Unable to create table; ', error);
+  console.error (error);
 });
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}...`))
